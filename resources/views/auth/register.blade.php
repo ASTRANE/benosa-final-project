@@ -9,7 +9,7 @@
             <div class="text-center mb-4">
                 <div class="auth-logo mb-2"><i class="bi bi-heart-pulse-fill"></i></div>
                 <h4 class="fw-bold" style="color:#2E7D32;">Create Account</h4>
-                <p class="text-muted small">Join the MediCare system</p>
+                <p class="text-muted small">Join the BenoCare system</p>
             </div>
 
             @if($errors->any())

@@ -8,7 +8,7 @@
         <div class="card auth-card mx-auto p-4">
             <div class="text-center mb-4">
                 <div class="auth-logo mb-2"><i class="bi bi-heart-pulse-fill"></i></div>
-                <h4 class="fw-bold" style="color:#2E7D32;">MediCare</h4>
+                <h4 class="fw-bold" style="color:#2E7D32;">BenoCare</h4>
                 <p class="text-muted small">Sign in to your account</p>
             </div>
 

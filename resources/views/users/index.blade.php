@@ -52,7 +52,7 @@
                     <td>
                         <div class="d-flex align-items-center gap-2">
                             @if($user->avatar)
-                                <img src="{{ Storage::url($user->avatar) }}" class="rounded-circle" width="32" height="32" style="object-fit:cover;">
+                                <img src="{{ $user->avatar }}" class="rounded-circle" width="32" height="32" style="object-fit:cover;">
                             @else
                                 <div style="width:32px;height:32px;border-radius:50%;background:var(--green-pale);color:var(--green);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">
                                     {{ strtoupper(substr($user->name,0,1)) }}
