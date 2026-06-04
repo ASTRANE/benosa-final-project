@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -38,11 +37,8 @@ class ProfileController extends Controller
         }
 
         if ($request->hasFile('avatar')) {
-            $disk = config('filesystems.default');
-            if ($user->avatar) {
-                Storage::disk($disk)->delete($user->avatar);
-            }
-            $data['avatar'] = $request->file('avatar')->store('avatars', $disk);
+            $file = $request->file('avatar');
+            $data['avatar'] = 'data:' . $file->getMimeType() . ';base64,' . base64_encode(file_get_contents($file->getRealPath()));
         }
 
         $user->update($data);
