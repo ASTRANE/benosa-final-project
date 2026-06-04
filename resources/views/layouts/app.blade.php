@@ -107,12 +107,9 @@
             <i class="bi bi-person-circle"></i> Profile
         </a>
         <hr class="mx-3 my-2">
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="nav-link btn btn-link text-danger w-100 text-start">
-                <i class="bi bi-box-arrow-left"></i> Logout
-            </button>
-        </form>
+        <a href="{{ route('logout') }}" class="nav-link text-danger">
+            <i class="bi bi-box-arrow-left"></i> Logout
+        </a>
     </nav>
 </div>
 
