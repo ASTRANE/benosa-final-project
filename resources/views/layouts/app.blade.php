@@ -123,7 +123,7 @@
         <span class="text-muted small">@yield('page-title', 'Dashboard')</span>
         <div class="d-flex align-items-center gap-2">
             @if(Auth::user()->avatar)
-                <img src="{{ Storage::url(Auth::user()->avatar) }}" class="rounded-circle" width="32" height="32" style="object-fit:cover">
+                <img src="{{ asset('storage/' . Auth::user()->avatar) }}" class="rounded-circle" width="32" height="32" style="object-fit:cover">
             @else
                 <div style="width:32px;height:32px;border-radius:50%;background:var(--green-pale);color:var(--green);display:flex;align-items:center;justify-content:center;font-weight:700;">
                     {{ strtoupper(substr(Auth::user()->name,0,1)) }}

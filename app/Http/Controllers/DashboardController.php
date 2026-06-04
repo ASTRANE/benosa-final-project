@@ -12,12 +12,13 @@ class DashboardController extends Controller
         $total      = Patient::count();
         $active     = Patient::where('status', 'Active')->count();
         $archived   = Patient::where('status', 'Archived')->count();
-        $newThisMonth = Patient::whereRaw("strftime('%Y-%m', created_at) = ?", [now()->format('Y-m')])
+        $newThisMonth = Patient::whereYear('created_at', now()->year)
+                               ->whereMonth('created_at', now()->month)
                                ->count();
 
         // Monthly visits for current year (chart data)
-        $monthly = Patient::selectRaw("CAST(strftime('%m', date_of_visit) AS INTEGER) as month, COUNT(*) as count")
-            ->whereRaw("strftime('%Y', date_of_visit) = ?", [now()->year])
+        $monthly = Patient::selectRaw("MONTH(date_of_visit) as month, COUNT(*) as count")
+            ->whereYear('date_of_visit', now()->year)
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('count', 'month');

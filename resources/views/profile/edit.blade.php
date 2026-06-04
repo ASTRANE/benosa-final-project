@@ -21,7 +21,7 @@
 
         <div class="text-center mb-4">
             @if($user->avatar)
-                <img src="{{ Storage::url($user->avatar) }}" class="rounded-circle mb-2" width="80" height="80" style="object-fit:cover;border:3px solid var(--green-border);">
+                <img src="{{ asset('storage/' . $user->avatar) }}" class="rounded-circle mb-2" width="80" height="80" style="object-fit:cover;border:3px solid var(--green-border);">
             @else
                 <div class="mx-auto mb-2" style="width:80px;height:80px;border-radius:50%;background:var(--green-pale);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;">
                     {{ strtoupper(substr($user->name,0,1)) }}
