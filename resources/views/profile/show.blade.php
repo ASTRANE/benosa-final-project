@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@php use Illuminate\Support\Facades\Storage; @endphp
 
 @section('title', 'My Profile')
 @section('page-title', 'My Profile')
@@ -12,7 +13,7 @@
 <div class="card stat-card p-4" style="max-width:560px;">
     <div class="d-flex align-items-center gap-4 mb-4 pb-3 border-bottom">
         @if($user->avatar)
-            <img src="{{ asset('storage/' . $user->avatar) }}" class="rounded-circle" width="72" height="72" style="object-fit:cover;border:3px solid var(--green-border);">
+            <img src="{{ Storage::url($user->avatar) }}" class="rounded-circle" width="72" height="72" style="object-fit:cover;border:3px solid var(--green-border);">
         @else
             <div style="width:72px;height:72px;border-radius:50%;background:var(--green-pale);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;border:3px solid var(--green-border);">
                 {{ strtoupper(substr($user->name,0,1)) }}

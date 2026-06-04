@@ -38,10 +38,11 @@ class ProfileController extends Controller
         }
 
         if ($request->hasFile('avatar')) {
+            $disk = config('filesystems.default');
             if ($user->avatar) {
-                Storage::disk('public')->delete($user->avatar);
+                Storage::disk($disk)->delete($user->avatar);
             }
-            $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
+            $data['avatar'] = $request->file('avatar')->store('avatars', $disk);
         }
 
         $user->update($data);
